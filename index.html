@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Time Donation Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <style>
+.loader { border-top-color: #3498db; -webkit-animation: spinner 1.5s linear infinite; animation: spinner 1.5s linear infinite; }
+@keyframes spinner { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+  </head>
+  <body class="bg-gray-100 min-h-screen font-sans">
+
+    <!-- CONFIG -->
+    <script>
+      // REPLACE THESE VALUES
+      const BACKEND_URL = 'https://script.google.com/macros/s/AKfycbzrOc-VM65Xwtja7fNVuREgXFGcX8Fn3-9Xj0Gj2NT2X--MOJVPOREMQYziIx5b7IsJ/exec'; 
+      const GOOGLE_CLIENT_ID = '536600424972-rie0voidtp53go7kc1pcamorfb2fpl4l.apps.googleusercontent.com';
+      const SHARED_KEY = 'change_this_to_something_random_and_complex';
+    </script>
+
+    <!-- 1. LOGIN VIEW -->
+    <div id="view-login" class="flex flex-col items-center justify-center h-screen">
+      <div class="bg-white p-8 rounded-lg shadow-xl text-center max-w-sm w-full">
+        <h1 class="text-2xl font-bold mb-2 text-gray-800">Time Donation</h1>
+        <p class="text-gray-500 mb-8 text-sm">Please sign in to continue</p>
+
+        <!-- 
+          Updated: Added data-use_fedcm_for_prompt="false" to fix the "identity-credentials-get" error.
+          This disables the newer Federated Credential Management API which can be blocked in some 
+          contexts (like iframes or specific hosting environments) and falls back to the standard flow.
+        -->
+        <div id="g_id_onload"
+          data-client_id="536600424972-rie0voidtp53go7kc1pcamorfb2fpl4l.apps.googleusercontent.com" 
+          data-callback="handleCredentialResponse"
+          data-auto_select="false"
+          data-use_fedcm_for_prompt="false">
+        </div>
+
+        <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left"></div>
+
+        <div id="loading-state" class="hidden mt-6">
+          <div class="loader ease-linear rounded-full border-2 border-t-2 border-gray-200 h-6 w-6 mx-auto mb-2"></div>
+          <p class="text-xs text-gray-400">Verifying...</p>
+        </div>
+        <div id="error-msg" class="hidden mt-4 text-red-500 text-xs bg-red-50 p-2 rounded"></div>
+      </div>
+    </div>
+
+    <!-- 2. APP CONTAINER (Injected HTML) -->
+    <div id="view-app" class="hidden w-full h-full"></div>
+
+    <script>
+      // Init Client ID dynamically from the Config const
+      const gDiv = document.getElementById('g_id_onload');
+      gDiv.setAttribute('data-client_id', GOOGLE_CLIENT_ID);
+
+      function handleCredentialResponse(response) {
+        document.querySelector('.g_id_signin').style.display = 'none';
+        document.getElementById('loading-state').classList.remove('hidden');
+
+        callBackend('login_and_fetch_view', { credential: response.credential })
+          .then(renderApp)
+          .catch(showError);
+      }
+
+      function renderApp(response) {
+        if (response.error) throw new Error(response.error);
+
+        // Hide Login, Show App
+        document.getElementById('view-login').classList.add('hidden');
+        const appDiv = document.getElementById('view-app');
+        appDiv.classList.remove('hidden');
+
+        // Inject the HTML received from Backend
+        // We use a range fragment to ensure scripts execute
+        const range = document.createRange();
+        range.selectNode(document.body);
+        const fragment = range.createContextualFragment(response.html);
+
+        appDiv.innerHTML = ''; // Clear
+        appDiv.appendChild(fragment);
+
+        // Re-bind global proxy for the injected forms
+        window.google = {
+          script: {
+            run: {
+              withSuccessHandler: (successCb) => ({
+                withFailureHandler: (failCb) => ({
+                  proxyApiCall: (action, data) => {
+                    callBackend(action, data)
+                      .then(successCb)
+                      .catch(failCb);
+                  }
+                })
+              })
+            }
+          }
+        };
+      }
+
+      async function callBackend(action, data) {
+        // We use text/plain to avoid CORS Preflight (OPTIONS) requests
+        // Apps Script handles this fine as long as body is valid JSON
+        const payload = {
+          action: action,
+          secret: SHARED_KEY,
+          ...data
+        };
+
+        const res = await fetch(BACKEND_URL, {
+          method: 'POST',
+          body: JSON.stringify(payload),
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8',
+          },
+        });
+
+        const text = await res.text();
+        try {
+          return JSON.parse(text);
+        } catch (e) {
+          throw new Error("Server error: " + text.substring(0, 100));
+        }
+      }
+
+      function showError(err) {
+        const el = document.getElementById('error-msg');
+        el.innerText = err.message || "Authentication failed";
+        el.classList.remove('hidden');
+        document.getElementById('loading-state').classList.add('hidden');
+        document.querySelector('.g_id_signin').style.display = 'block';
+      }
+    </script>
+  </body>
+</html>
