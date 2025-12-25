@@ -6,29 +6,38 @@
     <title>IITB Alumni TimeBank</title>
     <link rel="icon" type="image/png" href="./assets/icon.png" />
     <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script type="module" crossorigin src="./assets/index-DHiSzyky.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-B6G-i3Ai.css">
+    <script type="module" crossorigin src="./assets/index-CYAaeS-y.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Cc4eWlIm.css">
   </head>
   <body>
-    <div id="view-landing" class="page">
-      <div id="busy-overlay" class="busy-overlay hidden" role="status" aria-live="polite">
-        <div class="busy-card">
-          <div class="spinner"></div>
-          <div id="busy-message">Signing you in…</div>
+    <header class="site-header">
+      <a class="logo" href="#top" aria-label="IITB Alumni Time-Bank" data-home>
+        <img class="logo-image" src="./assets/logo.png" alt="IITB Alumni Time-Bank" />
+      </a>
+      <nav class="site-nav" data-landing-nav>
+        <a href="#about">About</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#contribute">Pledge Your Time</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <div class="gsi-button gsi-button-header" data-gsi-button="header" data-gsi-size="medium" data-gsi-text="signin"></div>
+        <button class="btn-outline btn-header hidden" data-contrib-button>Your contributions</button>
+        <div class="account-chip hidden" data-account-chip>
+          <span class="account-email" data-account-email></span>
+          <button class="btn-link btn-signout" data-signout>Sign out</button>
         </div>
       </div>
-      <header class="site-header">
-        <a class="logo" href="#top" aria-label="IITB Alumni Time-Bank">
-          <img class="logo-image" src="./assets/logo.png" alt="IITB Alumni Time-Bank" />
-        </a>
-        <nav class="site-nav">
-          <a href="#about">About</a>
-          <a href="#how-it-works">How It Works</a>
-          <a href="#contribute">Pledge Your Time</a>
-          <a href="#faq">FAQ</a>
-        </nav>
-        <button class="btn-outline btn-header" data-scroll="#contribute">Get Started</button>
-      </header>
+    </header>
+
+    <div id="busy-overlay" class="busy-overlay hidden" role="status" aria-live="polite">
+      <div class="busy-card">
+        <div class="spinner"></div>
+        <div id="busy-message">Signing you in…</div>
+      </div>
+    </div>
+
+    <div id="view-landing" class="page">
 
       <main id="top">
         <section class="hero">
@@ -38,7 +47,7 @@
             <p class="lead">
               Share your expertise, contribute your time, solve student needs, and strengthen the IITB ecosystem through focused, high-impact sessions. Pledge your time <em>NOW</em>!
             </p>
-            <div class="hero-actions">
+            <div class="hero-actions" data-auth-panel>
               <div class="gsi-wrap">
                 <div class="gsi-button" data-gsi-button="hero"></div>
               </div>
@@ -123,7 +132,7 @@
             <p>Pick as many areas of interest.</p>
           </div>
           <ul class="contribute-list" data-taxonomy-list></ul>
-          <div class="cta-strip">
+          <div class="cta-strip" data-auth-panel>
             <h3>Ready to donate time?</h3>
             <div class="gsi-wrap">
               <div class="gsi-button" data-gsi-button="footer"></div>
