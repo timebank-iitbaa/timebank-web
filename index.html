@@ -6,8 +6,8 @@
     <title>IITB Alumni TimeBank</title>
     <link rel="icon" type="image/png" href="./assets/icon.png" />
     <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script type="module" crossorigin src="./assets/index-DsQqWsma.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-Dx8CxVcC.css">
+    <script type="module" crossorigin src="./assets/index-tbkwxXao.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BrNYlpaA.css">
   </head>
   <body>
     <header class="site-header">
@@ -17,16 +17,47 @@
         </a>
         <div class="header-tagline">Converting Time into Collective Impact</div>
         <div class="header-actions">
-          <div class="gsi-button gsi-button-header" data-gsi-button="header" data-gsi-size="medium" data-gsi-text="signin"></div>
-          <button class="btn-outline btn-header hidden" data-contrib-button>Your contributions</button>
-          <div class="account-chip hidden" data-account-chip>
-            <span class="account-email" data-account-email></span>
-            <button class="btn-link btn-signout" data-signout>Sign out</button>
+          <div class="header-actions-top">
+            <button class="icon-button hidden" data-signout-icon aria-label="Sign out" title="Sign out">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 6H5.5a2.5 2.5 0 0 0-2.5 2.5v7A2.5 2.5 0 0 0 5.5 18H9"></path>
+                <path d="M16 12H7.5"></path>
+                <path d="M13 9l3 3-3 3"></path>
+              </svg>
+            </button>
+            <div class="gsi-button gsi-button-header" data-gsi-button="header" data-gsi-size="medium" data-gsi-text="signin"></div>
+            <div class="account-chip hidden" data-account-chip>
+              <span class="account-email" data-account-email></span>
+              <button class="btn-link btn-signout" data-signout aria-label="Sign out">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M9 6H5.5a2.5 2.5 0 0 0-2.5 2.5v7A2.5 2.5 0 0 0 5.5 18H9"></path>
+                  <path d="M16 12H7.5"></path>
+                  <path d="M13 9l3 3-3 3"></path>
+                </svg>
+              </button>
+            </div>
           </div>
+          <div class="header-actions-bottom">
+            <button class="icon-button hidden" data-home aria-label="Back to homepage" title="Back to homepage">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 11.5L12 4l9 7.5"></path>
+                <path d="M5.5 10.5V20h5.5v-5h2v5h5.5v-9.5"></path>
+              </svg>
+            </button>
+            <button class="icon-button menu-button" data-menu-toggle aria-label="Open menu" title="Menu">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 7h16"></path>
+                <path d="M4 12h16"></path>
+                <path d="M4 17h16"></path>
+              </svg>
+            </button>
+          </div>
+          <div class="menu-panel hidden" data-menu-panel></div>
         </div>
       </div>
       <div class="header-row header-bottom" data-landing-nav>
         <nav class="site-nav">
+          <button class="nav-cta hidden" type="button" data-contrib-link>Your contributions</button>
           <a href="#about">About</a>
           <a href="#how-it-works">How It Works</a>
           <a href="#contribute">Pledge Your Time</a>
@@ -39,6 +70,17 @@
       <div class="busy-card">
         <div class="spinner"></div>
         <div id="busy-message">Signing you in…</div>
+      </div>
+    </div>
+
+    <div id="signout-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="signout-title">
+      <div class="modal-card">
+        <h3 id="signout-title">Sign out?</h3>
+        <p>We will end your session on this device. You can sign back in anytime.</p>
+        <div class="modal-actions">
+          <button class="btn-outline" type="button" data-signout-cancel>Cancel</button>
+          <button class="btn-primary" type="button" data-signout-confirm>Sign out</button>
+        </div>
       </div>
     </div>
 
@@ -196,6 +238,13 @@
             <h3>IITB Alumni TimeBank</h3>
             <p><em>Converting Time into Collective Impact.</em></p>
           </div>
+        </div>
+        <div class="footer-links">
+          <h4>Quick links</h4>
+          <button class="link-button hidden" type="button" data-contrib-link>Your contributions</button>
+          <a href="#about">About</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#contribute">Pledge Your Time</a>
         </div>
         <div class="footer-contact">
           <h4>Contact</h4>
