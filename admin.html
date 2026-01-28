@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TimeBank Admin</title>
+    <link rel="icon" type="image/png" href="./assets/icon.png" />
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script type="module" crossorigin src="./assets/admin-D3gfM1ju.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/runtime-BKONUYGa.js">
+    <link rel="stylesheet" crossorigin href="./assets/runtime-BcZhJJ2q.css">
+  </head>
+  <body class="admin-body">
+    <main class="admin-shell">
+      <section id="admin-login" class="panel">
+        <h1>Admin – Joined Donations</h1>
+        <p>Sign in with an approved admin Google account to view donations joined with donor profiles.</p>
+        <div data-gsi-admin></div>
+        <div class="status" data-status></div>
+      </section>
+
+      <section id="admin-table" class="panel hidden">
+        <header class="panel-header">
+          <div>
+            <h1>Joined donations + profiles</h1>
+            <p class="subhead" data-summary></p>
+          </div>
+          <div class="panel-actions">
+            <button class="btn-outline" type="button" data-refresh>Refresh</button>
+            <button class="btn-primary" type="button" data-signout>Sign out</button>
+          </div>
+        </header>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Batch</th>
+                <th>Dept</th>
+                <th>Area</th>
+                <th>Mode</th>
+                <th>Hours</th>
+                <th>Focus</th>
+                <th>Timezone</th>
+                <th>Created</th>
+                <th>Cohort</th>
+              </tr>
+            </thead>
+            <tbody data-table-body></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+  </body>
+</html>
