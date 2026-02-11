@@ -9,9 +9,9 @@
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="https://unpkg.com/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
     <script src="https://unpkg.com/tabulator-tables@6.2.5/dist/js/tabulator.min.js"></script>
-    <script type="module" crossorigin src="./assets/admin-BT3ce87z.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/runtime-DWVsfJJv.js">
-    <link rel="stylesheet" crossorigin href="./assets/runtime-CDrtsc-8.css">
+    <script type="module" crossorigin src="./assets/admin-DxxSQ0Hm.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/runtime-DPWUjJdk.js">
+    <link rel="stylesheet" crossorigin href="./assets/runtime-CNoGJjfQ.css">
   </head>
   <body class="admin-body">
     <main class="admin-shell">
@@ -37,13 +37,33 @@
         </header>
         <div class="toolbar">
           <div class="filter-block">
-            <button class="btn-outline" type="button" data-area-filter-toggle>Filter areas</button>
+            <button class="btn-outline" type="button" data-mode-filter-toggle>Mode</button>
+            <div class="area-filter-menu hidden" data-mode-filter-menu>
+              <label class="area-filter-option">
+                <input type="checkbox" value="__all__" checked data-mode-filter-all />
+                <span>All modes</span>
+              </label>
+              <div class="area-filter-options" data-mode-filter-options></div>
+            </div>
+          </div>
+          <div class="filter-block">
+            <button class="btn-outline" type="button" data-area-filter-toggle>Areas</button>
             <div class="area-filter-menu hidden" data-area-filter-menu>
               <label class="area-filter-option">
                 <input type="checkbox" value="__all__" checked data-area-filter-all />
                 <span>All areas</span>
               </label>
               <div class="area-filter-options" data-area-filter-options></div>
+            </div>
+          </div>
+          <div class="filter-block">
+            <button class="btn-outline" type="button" data-cohort-filter-toggle>Cohort</button>
+            <div class="area-filter-menu hidden" data-cohort-filter-menu>
+              <label class="area-filter-option">
+                <input type="checkbox" value="__all__" checked data-cohort-filter-all />
+                <span>All cohorts</span>
+              </label>
+              <div class="area-filter-options" data-cohort-filter-options></div>
             </div>
           </div>
           <div class="metric-strip">
@@ -61,14 +81,13 @@
           <div id="admin-grid"></div>
         </div>
         <div class="report-panel">
-          <h2>Weekly category snapshot</h2>
-          <p class="subhead">Category totals count full row hours for each category (no split across categories).</p>
+          <h2>Weekly area snapshot</h2>
+          <p class="subhead">Hours by area are omitted here to avoid double counting when one donation maps to multiple areas.</p>
           <div class="category-table-wrap">
             <table class="category-table">
               <thead>
                 <tr>
-                  <th>Category</th>
-                  <th>Estimated Hours</th>
+                  <th>Area</th>
                   <th>Donations</th>
                 </tr>
               </thead>
