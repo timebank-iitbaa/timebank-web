@@ -9,9 +9,9 @@
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="https://unpkg.com/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
     <script src="https://unpkg.com/tabulator-tables@6.2.5/dist/js/tabulator.min.js"></script>
-    <script type="module" crossorigin src="./assets/admin-DxxSQ0Hm.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/runtime-DPWUjJdk.js">
-    <link rel="stylesheet" crossorigin href="./assets/runtime-CNoGJjfQ.css">
+    <script type="module" crossorigin src="./assets/admin-WLIcyAx9.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/runtime-D2x3uCK1.js">
+    <link rel="stylesheet" crossorigin href="./assets/runtime-C1M04mID.css">
   </head>
   <body class="admin-body">
     <main class="admin-shell">
@@ -36,36 +36,6 @@
           </div>
         </header>
         <div class="toolbar">
-          <div class="filter-block">
-            <button class="btn-outline" type="button" data-mode-filter-toggle>Mode</button>
-            <div class="area-filter-menu hidden" data-mode-filter-menu>
-              <label class="area-filter-option">
-                <input type="checkbox" value="__all__" checked data-mode-filter-all />
-                <span>All modes</span>
-              </label>
-              <div class="area-filter-options" data-mode-filter-options></div>
-            </div>
-          </div>
-          <div class="filter-block">
-            <button class="btn-outline" type="button" data-area-filter-toggle>Areas</button>
-            <div class="area-filter-menu hidden" data-area-filter-menu>
-              <label class="area-filter-option">
-                <input type="checkbox" value="__all__" checked data-area-filter-all />
-                <span>All areas</span>
-              </label>
-              <div class="area-filter-options" data-area-filter-options></div>
-            </div>
-          </div>
-          <div class="filter-block">
-            <button class="btn-outline" type="button" data-cohort-filter-toggle>Cohort</button>
-            <div class="area-filter-menu hidden" data-cohort-filter-menu>
-              <label class="area-filter-option">
-                <input type="checkbox" value="__all__" checked data-cohort-filter-all />
-                <span>All cohorts</span>
-              </label>
-              <div class="area-filter-options" data-cohort-filter-options></div>
-            </div>
-          </div>
           <div class="metric-strip">
             <div class="metric-item">
               <span class="metric-label">Visible rows</span>
@@ -75,6 +45,29 @@
               <span class="metric-label">Estimated hours</span>
               <strong data-visible-hours>0</strong>
             </div>
+          </div>
+        </div>
+        <div class="floating-filter-menus">
+          <div class="area-filter-menu hidden floating-filter-menu" data-mode-filter-menu>
+            <label class="area-filter-option">
+              <input type="checkbox" value="__all__" checked data-mode-filter-all />
+              <span>All modes</span>
+            </label>
+            <div class="area-filter-options" data-mode-filter-options></div>
+          </div>
+          <div class="area-filter-menu hidden floating-filter-menu" data-area-filter-menu>
+            <label class="area-filter-option">
+              <input type="checkbox" value="__all__" checked data-area-filter-all />
+              <span>All areas</span>
+            </label>
+            <div class="area-filter-options" data-area-filter-options></div>
+          </div>
+          <div class="area-filter-menu hidden floating-filter-menu" data-cohort-filter-menu>
+            <label class="area-filter-option">
+              <input type="checkbox" value="__all__" checked data-cohort-filter-all />
+              <span>All cohorts</span>
+            </label>
+            <div class="area-filter-options" data-cohort-filter-options></div>
           </div>
         </div>
         <div class="table-wrap grid-wrap">
