@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>TimeBank Admin</title>
     <link rel="icon" type="image/png" href="./assets/icon.png" />
+    <link rel="stylesheet" href="https://unpkg.com/tabulator-tables@6.2.5/dist/css/tabulator.min.css" />
     <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script type="module" crossorigin src="./assets/admin-D3gfM1ju.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/runtime-BKONUYGa.js">
-    <link rel="stylesheet" crossorigin href="./assets/runtime-BcZhJJ2q.css">
+    <script src="https://unpkg.com/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script src="https://unpkg.com/tabulator-tables@6.2.5/dist/js/tabulator.min.js"></script>
+    <script type="module" crossorigin src="./assets/admin-BT3ce87z.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/runtime-DWVsfJJv.js">
+    <link rel="stylesheet" crossorigin href="./assets/runtime-CDrtsc-8.css">
   </head>
   <body class="admin-body">
     <main class="admin-shell">
       <section id="admin-login" class="panel">
-        <h1>Admin – Joined Donations</h1>
+        <h1>Admin Joined Donations</h1>
         <p>Sign in with an approved admin Google account to view donations joined with donor profiles.</p>
         <div data-gsi-admin></div>
         <div class="status" data-status></div>
@@ -22,33 +25,58 @@
       <section id="admin-table" class="panel hidden">
         <header class="panel-header">
           <div>
-            <h1>Joined donations + profiles</h1>
+            <h1>Donation Supply Console</h1>
             <p class="subhead" data-summary></p>
           </div>
           <div class="panel-actions">
             <button class="btn-outline" type="button" data-refresh>Refresh</button>
+            <button class="btn-outline" type="button" data-export-current>Download current view</button>
+            <button class="btn-outline" type="button" data-export-all>Download full data</button>
             <button class="btn-primary" type="button" data-signout>Sign out</button>
           </div>
         </header>
-        <div class="table-wrap">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Email</th>
-                <th>Name</th>
-                <th>Batch</th>
-                <th>Dept</th>
-                <th>Area</th>
-                <th>Mode</th>
-                <th>Hours</th>
-                <th>Focus</th>
-                <th>Timezone</th>
-                <th>Created</th>
-                <th>Cohort</th>
-              </tr>
-            </thead>
-            <tbody data-table-body></tbody>
-          </table>
+        <div class="toolbar">
+          <div class="filter-block">
+            <button class="btn-outline" type="button" data-area-filter-toggle>Filter areas</button>
+            <div class="area-filter-menu hidden" data-area-filter-menu>
+              <label class="area-filter-option">
+                <input type="checkbox" value="__all__" checked data-area-filter-all />
+                <span>All areas</span>
+              </label>
+              <div class="area-filter-options" data-area-filter-options></div>
+            </div>
+          </div>
+          <div class="metric-strip">
+            <div class="metric-item">
+              <span class="metric-label">Visible rows</span>
+              <strong data-visible-rows>0</strong>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Estimated hours</span>
+              <strong data-visible-hours>0</strong>
+            </div>
+          </div>
+        </div>
+        <div class="table-wrap grid-wrap">
+          <div id="admin-grid"></div>
+        </div>
+        <div class="report-panel">
+          <h2>Weekly category snapshot</h2>
+          <p class="subhead">Category totals count full row hours for each category (no split across categories).</p>
+          <div class="category-table-wrap">
+            <table class="category-table">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Estimated Hours</th>
+                  <th>Donations</th>
+                </tr>
+              </thead>
+              <tbody data-category-body></tbody>
+            </table>
+          </div>
+          <button class="btn-outline" type="button" data-generate-report>Generate weekly report text</button>
+          <textarea class="report-output" rows="8" data-report-output readonly></textarea>
         </div>
       </section>
     </main>
