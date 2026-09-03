@@ -164,5 +164,39 @@
 </div>
 
 <script src="main.js"></script>
+<script>
+  const origin = window.location.origin;
+
+  // 1. Update existing stylesheets
+  document.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
+    const currentHref = link.getAttribute('href');
+    if (currentHref && !currentHref.startsWith('http')) {
+      const cleanPath = currentHref.replace(/^\.\//, '');
+      link.href = `${origin}/damp/${cleanPath}`;
+    }
+  });
+
+  // 2. Update existing scripts
+  document.querySelectorAll('script[src]').forEach(script => {
+    const currentSrc = script.getAttribute('src');
+    if (currentSrc && !currentSrc.startsWith('http')) {
+      const cleanPath = currentSrc.replace(/^\.\//, '');
+      script.src = `${origin}/damp/${cleanPath}`;
+    }
+  });
+
+  // 3. Update existing anchor links (including "../index.html" back button)
+  document.querySelectorAll('a').forEach(a => {
+    const currentHref = a.getAttribute('href');
+    if (currentHref && !currentHref.startsWith('http') && !currentHref.startsWith('#')) {
+      if (currentHref.startsWith('../')) {
+        a.href = `${origin}/index.html`;
+      } else {
+        const cleanPath = currentHref.replace(/^\.\//, '');
+        a.href = `${origin}/damp/${cleanPath}`;
+      }
+    }
+  });
+</script>
 </body>
 </html>
