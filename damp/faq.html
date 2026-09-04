@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ | DAMP+</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">DAMP<span class="plus">+</span></a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="team.html">DAMP Team</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="faq.html" aria-current="page">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="../index.html"><- Back</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <button class="btn btn-beacon" data-open-signup>Sign Up as Mentor</button>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">FAQ</p>
+      <h1>Questions, answered before the fog sets in</h1>
+      <p class="lede">Common questions from mentors and mentees. [Placeholder: replace with real, programme-specific answers.]</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>Who can sign up as a mentor?</summary>
+          <p>Any alumnus of [Placeholder: institution name] in good standing can apply. There's no minimum years-since-graduation requirement — early-career and senior alumni both bring something useful.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How are mentors and mentees matched?</summary>
+          <p>The Matching & Ops subgroup allots pairs based on stated interests, career domain, and mutual availability. [Placeholder: describe the exact matching algorithm/process.]</p>
+        </details>
+        <details class="faq-item">
+          <summary>How much time does mentoring take?</summary>
+          <p>Most pairs meet for about an hour a month, though cadence is flexible and agreed between mentor and mentee. [Placeholder: confirm expected commitment.]</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I mentor more than one student?</summary>
+          <p>Yes, depending on availability. Indicate your capacity in the sign-up form and the team will match accordingly.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is there any cost to participate?</summary>
+          <p>No — DAMP+ is a free initiative for both alumni mentors and student mentees. [Placeholder: confirm.]</p>
+        </details>
+        <details class="faq-item">
+          <summary>How do I become a mentee?</summary>
+          <p>[Placeholder: mentee sign-up flow — link to a separate student intake form once available.]</p>
+        </details>
+        <details class="faq-item">
+          <summary>Who do I contact if something isn't working out with my match?</summary>
+          <p>Reach out to the Matching & Ops subgroup via the <a href="contact.html">Contact page</a> — rematching is possible at any point.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="cta-banner">
+      <p class="eyebrow" style="justify-content:center;">Still have questions?</p>
+      <h2>We're happy to explain more</h2>
+      <p>Can't find what you're looking for — reach out directly.</p>
+      <a href="contact.html" class="btn btn-beacon">Contact Us</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="brand" style="margin-bottom:12px; display:inline-flex;">DAMP<span class="plus">+</span></a>
+        <p style="max-width:280px; font-size:.88rem;">An alumni mentorship initiative. [Placeholder: one-line org description.]</p>
+      </div>
+      <div><h4>Explore</h4><ul><li><a href="about.html">About Us</a></li><li><a href="team.html">DAMP Team</a></li><li><a href="events.html">Events</a></li><li><a href="resources.html">Resources</a></li></ul></div>
+      <div><h4>Support</h4><ul><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="legal.html">Privacy Policy</a></li></ul></div>
+      <div><h4>Connect</h4><ul><li><a href="#">Instagram [placeholder]</a></li><li><a href="#">LinkedIn [placeholder]</a></li><li><a href="mailto:hello@dampplus.example">hello@dampplus.example</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> DAMP+. All rights reserved.</span>
+      <span>Site content is illustrative — for review purposes only.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="signupModal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="signupTitle">
+    <button class="modal-close" aria-label="Close">✕</button>
+    <p class="eyebrow">Mentor application</p>
+    <h2 id="signupTitle">Sign up as a mentor</h2>
+    <p class="lede">Takes about 10 minutes. The DAMP team reviews applications and reaches out about matching.</p>
+    <form id="mentorForm">
+      <div class="form-grid">
+        <div class="field"><label for="f-name">Full name</label><input id="f-name" type="text" required></div>
+        <div class="field"><label for="f-email">Email address</label><input id="f-email" type="email" required></div>
+        <div class="field"><label for="f-batch">Graduation batch</label><input id="f-batch" type="text" placeholder="e.g. 2019" required></div>
+        <div class="field"><label for="f-branch">Branch / department</label><input id="f-branch" type="text" required></div>
+        <div class="field"><label for="f-role">Current role</label><input id="f-role" type="text" placeholder="Title @ Company"></div>
+        <div class="field"><label for="f-linkedin">LinkedIn URL</label><input id="f-linkedin" type="url" placeholder="https://linkedin.com/in/..."></div>
+      </div>
+      <div class="field full">
+        <label>Areas of expertise</label>
+        <div class="checkbox-group">
+          <label class="checkbox-pill"><input type="checkbox"> Career guidance</label>
+          <label class="checkbox-pill"><input type="checkbox"> Higher studies</label>
+          <label class="checkbox-pill"><input type="checkbox"> Tech & product</label>
+          <label class="checkbox-pill"><input type="checkbox"> Finance & consulting</label>
+          <label class="checkbox-pill"><input type="checkbox"> Entrepreneurship</label>
+          <label class="checkbox-pill"><input type="checkbox"> Personal growth</label>
+        </div>
+      </div>
+      <div class="field full">
+        <label for="f-avail">Weekly availability</label>
+        <select id="f-avail"><option>Less than 1 hour</option><option>1–2 hours</option><option>2–4 hours</option><option>Flexible</option></select>
+      </div>
+      <div class="field full"><label for="f-why">Why do you want to mentor?</label><textarea id="f-why"></textarea></div>
+      <button class="btn btn-beacon" type="submit" style="width:100%; justify-content:center;">Submit application</button>
+    </form>
+    <div class="form-success">
+      <div class="check">✓</div>
+      <h3>Thanks — you're on the list.</h3>
+      <p class="lede" style="margin:0 auto;">The DAMP team will review your application and follow up by email.</p>
+    </div>
+  </div>
+</div>
+
+<script src="main.js"></script>
+<script>
+  const origin = window.location.origin;
+
+  // 1. Update existing stylesheets
+  document.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
+    const currentHref = link.getAttribute('href');
+    if (currentHref && !currentHref.startsWith('http')) {
+      const cleanPath = currentHref.replace(/^\.\//, '');
+      link.href = `${origin}/damp/${cleanPath}`;
+    }
+  });
+
+  // 2. Update existing scripts
+  document.querySelectorAll('script[src]').forEach(script => {
+    const currentSrc = script.getAttribute('src');
+    if (currentSrc && !currentSrc.startsWith('http')) {
+      const cleanPath = currentSrc.replace(/^\.\//, '');
+      script.src = `${origin}/damp/${cleanPath}`;
+    }
+  });
+
+  // 3. Update existing anchor links (including "../index.html" back button)
+  document.querySelectorAll('a').forEach(a => {
+    const currentHref = a.getAttribute('href');
+    if (currentHref && !currentHref.startsWith('http') && !currentHref.startsWith('#')) {
+      if (currentHref.startsWith('../')) {
+        a.href = `${origin}/index.html`;
+      } else {
+        const cleanPath = currentHref.replace(/^\.\//, '');
+        a.href = `${origin}/damp/${cleanPath}`;
+      }
+    }
+  });
+</script>
+</body>
+</html>
