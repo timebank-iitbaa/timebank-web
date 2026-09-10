@@ -67,7 +67,412 @@
       </div>
     </header>
 
-    <div id="busy-overlay" class="busy-overlay hidden" role="status" aria-live="polite">
+    <!-- Banner DAMP+ -->
+<!-- <a href="./damp.html" class="hero1-link" aria-label="Go to DAMP+ details">
+  <section class="hero1">
+    <style>
+      :root {
+        --bg-navy: #0f1c32;
+        --accent-orange: #ce5a2b;
+        --accent-hover: #b84e24;
+        --text-white: #ffffff;
+        --text-muted: #b0c2d6;
+        --card-badge-bg: #ffffff;
+        --font-serif: "Georgia", "Times New Roman", serif;
+        --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      .hero1-link {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        width: 100%;
+      }
+
+      .hero1 {
+        width: 100%;
+        background: linear-gradient(135deg, #0d182b 0%, #10203a 60%, #162a4d 100%);
+        color: var(--text-white);
+        font-family: var(--font-sans);
+        padding: 32px 24px;
+        box-sizing: border-box;
+        border-radius: 16px;
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+      }
+
+      .hero1-link:hover .hero1 {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+      }
+
+      /* Subtle background accent glow */
+      .hero1::after {
+        content: "";
+        position: absolute;
+        top: -40%;
+        right: -10%;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(206, 90, 43, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+        pointer-events: none;
+      }
+
+      .wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Compact Top Header Row */
+      .header-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .brought-by {
+        background-color: var(--card-badge-bg);
+        border-radius: 10px;
+        padding: 6px 14px;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+      }
+
+      .tb-mark {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 110px;
+        min-height: 28px;
+      }
+
+      .divider {
+        width: 1px;
+        height: 28px;
+        background-color: #e5e7eb;
+      }
+
+      .brings {
+        color: #4b5563;
+        font-size: 11px;
+        line-height: 1.2;
+        font-weight: 500;
+      }
+
+      .brings b {
+        font-size: 14px;
+        font-weight: 800;
+        color: #111827;
+      }
+
+      .eyebrow-badge {
+        display: inline-flex;
+        align-items: center;
+        background: rgba(206, 90, 43, 0.15);
+        border: 1px solid rgba(206, 90, 43, 0.4);
+        color: #f18a63;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        padding: 6px 14px;
+        border-radius: 20px;
+      }
+
+      /* Compact Hero Content Grid */
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 24px;
+        align-items: center;
+      }
+
+      .hero-body h1 {
+        font-family: var(--font-serif);
+        font-size: clamp(26px, 3.5vw, 40px);
+        line-height: 1.15;
+        font-weight: 700;
+        margin: 0 0 8px 0;
+        color: var(--text-white);
+        letter-spacing: -0.5px;
+      }
+
+      .damp-kicker {
+        font-size: 13px;
+        line-height: 1.4;
+        color: var(--text-muted);
+        margin: 0 0 12px 0;
+      }
+
+      .damp-kicker b {
+        color: var(--text-white);
+      }
+
+      .damp-kicker em {
+        font-style: italic;
+        color: #d1d5db;
+      }
+
+      .lede {
+        font-size: clamp(14px, 1.4vw, 16px);
+        line-height: 1.45;
+        color: var(--text-muted);
+        max-width: 780px;
+        margin: 0;
+      }
+
+      /* Eye-Catching Banner Box */
+      .hero-callout {
+        background: linear-gradient(135deg, #ce5a2b 0%, #b84e24 100%);
+        color: var(--text-white);
+        font-family: var(--font-serif);
+        font-size: clamp(15px, 1.8vw, 19px);
+        font-weight: 600;
+        line-height: 1.35;
+        padding: 12px 20px;
+        border-radius: 10px;
+        margin: 4px 0 0 0;
+        box-shadow: 0 4px 16px rgba(206, 90, 43, 0.3);
+        border-left: 4px solid #f8a07c;
+      }
+
+      /* Compact Footer Chips Section */
+      .hero-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+        margin-top: 4px;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 18px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 1.3;
+        box-sizing: border-box;
+      }
+
+      .chip-solid {
+        background-color: var(--accent-orange);
+        color: var(--text-white);
+        box-shadow: 0 4px 12px rgba(206, 90, 43, 0.35);
+      }
+
+      .hero1-link:hover .chip-solid {
+        background-color: var(--accent-hover);
+      }
+
+      .chip-outline {
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background-color: rgba(255, 255, 255, 0.04);
+        color: var(--text-muted);
+        flex: 1;
+        min-width: 280px;
+      }
+
+      .cta-arrow {
+        display: inline-block;
+        transition: transform 0.2s ease;
+      }
+
+      .hero1-link:hover .cta-arrow {
+        transform: translateX(4px);
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 900px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero1 {
+          padding: 24px 16px;
+          border-radius: 12px;
+        }
+
+        .header-meta {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+
+        .hero-chips {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .chip-outline {
+          min-width: unset;
+        }
+      }
+    </style>
+
+    <div class="wrap">
+
+      <div class="header-meta">
+        <div class="brought-by" aria-label="Alumni TimeBank brings you DAMP+">
+          <div class="tb-mark">
+
+          </div>
+          <div class="divider"></div>
+          <span class="brings">brings you<br><b>DAMP+</b></span>
+        </div>
+        <span class="eyebrow-badge">Dept. of Chemical Engineering · IIT Bombay</span>
+      </div>
+
+      <div class="hero-body">
+        <h1>Share experience. Shape a student's path.</h1>
+        <p class="damp-kicker"><b>DAMP</b> — <em>The Chemical Engineering Department Academic Mentoring Programme</em></p>
+        <p class="lede">DAMP+ adds an alumni layer to DAMP — the department's own academic mentoring programme for second-year undergraduate students.</p>
+      </div>
+
+      <div class="hero-callout">
+        Inviting 20 IIT Bombay Chemical Engineering alumni for the 1st in-person session
+      </div>
+
+      <div class="hero-chips">
+        <span class="chip chip-solid">
+          Express your interest in DAMP+ <span class="cta-arrow">→</span>
+        </span>
+        <span class="chip chip-outline">
+          📍 First in-person session · 25 Sep 2026 · 6.30 pm onwards at Chemical Engineering Dept., IIT Bombay
+        </span>
+      </div>
+    </div>
+  </section>
+</a> -->
+
+
+<a href="./damp" class="ticker-banner-link" aria-label="Express interest in DAMP+ session">
+  <div class="ticker-wrapper">
+    <style>
+      :root {
+        --accent-orange: #ce5a2b;
+        --accent-dark: #b84e24;
+        --text-white: #ffffff;
+        --font-serif: "Georgia", "Times New Roman", serif;
+        --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      .ticker-banner-link {
+        display: block;
+        text-decoration: none;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .ticker-wrapper {
+        width: 100%;
+        overflow: hidden;
+        background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-dark) 100%);
+        border-radius: 12px;
+        padding: 14px 0;
+        box-shadow: 0 6px 20px rgba(206, 90, 43, 0.3);
+        display: flex;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .ticker-track {
+        display: flex;
+        width: max-content;
+        animation: scrollInfinite 20s linear infinite;
+      }
+
+      /* Pauses ticker smoothly on hover */
+      .ticker-banner-link:hover .ticker-track {
+        animation-play-state: paused;
+      }
+
+      .ticker-item {
+        font-family: var(--font-serif);
+        font-size: clamp(15px, 2vw, 19px);
+        font-weight: 600;
+        color: var(--text-white);
+        white-space: nowrap;
+        padding: 0 32px;
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .click-badge {
+        background-color: #ffffff;
+        color: var(--accent-orange);
+        font-family: var(--font-sans);
+        font-size: 13px;
+        font-weight: 800;
+        padding: 6px 14px;
+        border-radius: 20px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+      }
+
+      .ticker-banner-link:hover .click-badge {
+        transform: scale(1.05);
+        background-color: #fff8f5;
+      }
+
+      @keyframes scrollInfinite {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+    </style>
+
+    <div class="ticker-track">
+      <!-- Set 1 -->
+      <div class="ticker-item">
+        🎓 Inviting 20 IIT Bombay Chemical Engineering alumni for the 1st in-person session
+        <span class="click-badge">Click Here to Join &rarr;</span>
+      </div>
+      <div class="ticker-item">
+        🎓 Inviting 20 IIT Bombay Chemical Engineering alumni for the 1st in-person session
+        <span class="click-badge">Click Here to Join &rarr;</span>
+      </div>
+
+      <!-- Set 2 (Duplicate set to create seamless infinite loop) -->
+      <div class="ticker-item">
+        🎓 Inviting 20 IIT Bombay Chemical Engineering alumni for the 1st in-person session
+        <span class="click-badge">Click Here to Join &rarr;</span>
+      </div>
+      <div class="ticker-item">
+        🎓 Inviting 20 IIT Bombay Chemical Engineering alumni for the 1st in-person session
+        <span class="click-badge">Click Here to Join &rarr;</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+<div id="busy-overlay" class="busy-overlay hidden" role="status" aria-live="polite">
       <div class="busy-card">
         <div class="spinner"></div>
         <div id="busy-message">Signing you in…</div>
